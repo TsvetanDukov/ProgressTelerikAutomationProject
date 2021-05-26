@@ -106,5 +106,50 @@ public class NavigationBarTests extends BaseTest {
         assertEquals(homePage.getPageTitle(),
                 "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
                 "Page title is incorrect!");
+        DemosPage demosPage = homePage.clickDemosLink();
+        HomePage homePage1 = demosPage.clickTelerikLogoLink();
+        assertEquals(homePage1.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        ServicesPage servicesPage = homePage1.clickServicesLink();
+        HomePage homePage2 = servicesPage.clickTelerikLogoLink();
+        assertEquals(homePage2.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        SupportPage supportPage = homePage2.clickDocsAndSupportLink();
+        HomePage homePage3 = supportPage.clickTelerikLogoLink();
+        assertEquals(homePage3.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        PricingPage pricingPage = homePage3.clickPricingLink();
+        HomePage homePage4 = pricingPage.clickTelerikLogoLink();
+        assertEquals(homePage4.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        SearchPage searchPage = homePage4.clickSearchLink();
+        HomePage homePage5 = searchPage.clickTelerikLogoLink();
+        assertEquals(homePage5.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        PricingPage pricingPage1 = homePage5.clickShoppingCartLink();
+        HomePage homePage6 = pricingPage1.clickTelerikLogoLink();
+        assertEquals(homePage6.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        LoginPage loginPage = homePage6.clickAccountLink();
+        HomePage homePage7 = loginPage.clickTelerikLogoLink();
+        assertEquals(homePage7.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        ContactPage contactPage = homePage7.clickContactUsLink();
+        HomePage homePage8 = contactPage.clickTelerikLogoLink();
+        assertEquals(homePage8.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
+        DownloadPage downloadPage = homePage8.clickFreeTrailLink();
+        HomePage homePage9 = downloadPage.clickTelerikLogoLink();
+        assertEquals(homePage9.getPageTitle(),
+                "Telerik & Kendo UI - .NET Components Suites & JavaScript UI Libraries",
+                "Page title is incorrect!");
     }
 }
