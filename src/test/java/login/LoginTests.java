@@ -57,5 +57,25 @@ public class LoginTests extends BaseTest {
         loginPage.enterEmailInToRecoverPassword("test.automation.egt@gmail.com");
         loginPage.scrollToElement();
         loginPage.clickSendButton();
+        loginPage.clickBackButton();
+    }
+
+    @Test
+    public void testDeselectCheckbox() {
+        LoginPage loginPage = homePage.clickAccountLink();
+        acceptCookies();
+        assertTrue(loginPage.isCheckboxDisplayed(), "Checkbox is not displayed!");
+        loginPage.deselectRememberMeCheckbox();
+        assertFalse(loginPage.isCheckboxSelected(), "Checkbox is selected");
+    }
+
+    @Test
+    public void testSelectCheckbox() {
+        LoginPage loginPage = homePage.clickAccountLink();
+        acceptCookies();
+        assertTrue(loginPage.isCheckboxDisplayed(), "Checkbox is not displayed!");
+        loginPage.deselectRememberMeCheckbox();
+        loginPage.selectRememberMeCheckbox();
+        assertTrue(loginPage.isCheckboxSelected(), "Checkbox is not selected!");
     }
 }

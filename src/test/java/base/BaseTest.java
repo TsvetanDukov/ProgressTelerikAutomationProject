@@ -3,10 +3,13 @@ package base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
@@ -34,5 +37,9 @@ public class BaseTest {
 
     public void acceptCookies() {
         driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+    }
+
+    public void implicitSynchronization() {
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     }
 }

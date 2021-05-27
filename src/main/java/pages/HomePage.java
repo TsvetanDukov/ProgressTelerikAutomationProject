@@ -17,6 +17,10 @@ public class HomePage {
     private By accountLink = By.xpath("//a[@title = 'Your Account']");
     private By contactUsLink = By.xpath("//a[@title = 'Contact Us']");
     private By freeTrailLink = By.xpath("//a[@href = '/download']");
+    private By facebookLink = By.xpath("//ul[contains(@class, 'Footer-List-Horizontal')]/li");
+    private By twitterLink = By.xpath("//ul[contains(@class, 'Footer-List-Horizontal')]/li[2]");
+    private By linkedInLink = By.xpath("//ul[contains(@class, 'Footer-List-Horizontal')]/li[3]");
+    private By twitchLink = By.xpath("//ul[contains(@class, 'Footer-List-Horizontal')]/li[4]");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -118,5 +122,25 @@ public class HomePage {
 
     public boolean isFreeTrailLinkDisplayed() {
         return driver.findElement(freeTrailLink).isDisplayed();
+    }
+
+    public FacebookPage clickFacebookLink() {
+        driver.findElement(facebookLink).click();
+        return new FacebookPage(driver);
+    }
+
+    public TwitterPage clickTwitterLink() {
+        driver.findElement(twitterLink).click();
+        return new TwitterPage(driver);
+    }
+
+    public LinkedInPage clickLinkedInLink() {
+        driver.findElement(linkedInLink).click();
+        return new LinkedInPage(driver);
+    }
+
+    public TwitchPage clickTwitchLink() {
+        driver.findElement(twitchLink).click();
+        return new TwitchPage(driver);
     }
 }

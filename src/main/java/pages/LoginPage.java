@@ -19,7 +19,9 @@ public class LoginPage {
     private By forgotFormHeader = By.xpath("//div[@id = 'forgotPasswordHolder']/h3");
     private By sendButton = By.id("sendRecoveryMailBtn");
     private By forgotEmailField = By.id("mailTextBox");
-    private By recoverPasswordMessage = By.xpath("//div[@id = 'widgetMessagesMv']/div/div");
+    private By recoverPasswordMessage = By.xpath("//div[contains(@class, 'Box--success')]");
+    private By backButton = By.xpath("//a[contains(@class, 'prev Link')]");
+    private By rememberMeCheckbox = By.id("RememberMe");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -88,7 +90,31 @@ public class LoginPage {
         js.executeScript("window.scrollBy(0,300)");
     }
 
-    public String recoverForgottenPasswordMessage() {
-        return driver.findElement(recoverPasswordMessage).getText();
+    public void clickBackButton() {
+        driver.findElement(backButton).click();
+    }
+
+    public boolean isCheckboxDisplayed() {
+        return driver.findElement(rememberMeCheckbox).isDisplayed();
+    }
+
+    public void deselectRememberMeCheckbox() {
+        WebElement checkbox = driver.findElement(rememberMeCheckbox);
+
+        if (checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+
+    public void selectRememberMeCheckbox() {
+        WebElement checkbox = driver.findElement(rememberMeCheckbox);
+
+        if (!checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+
+    public boolean isCheckboxSelected() {
+        return driver.findElement(rememberMeCheckbox).isSelected();
     }
 }
